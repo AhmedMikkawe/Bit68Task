@@ -2,9 +2,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/lazy";
 import { useState, useEffect } from "react";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay, Lazy } from "swiper";
 import axios from "axios";
+import { Col, Container, Row } from "react-bootstrap";
 
 function Slider() {
   const [slides, setSlides] = useState([]);
@@ -23,22 +25,39 @@ function Slider() {
       });
   }, []);
   return (
-    <Swiper
-      navigation={true}
-      pagination={{
-        dynamicBullets: false,
-      }}
-      modules={[Pagination, Navigation]}
-      className="home-slider"
-    >
-      {slides.map((slide) => {
-        return (
-          <SwiperSlide key={slide.id}>
-            <img className="img-fluid" src={slide.img} alt={slide.id} />
-          </SwiperSlide>
-        );
-      })}
-    </Swiper>
+    <div className="home-slider-container">
+      <Container>
+        <Row>
+          <Col>
+            <Swiper
+              lazy={true}
+              loop={true}
+              autoplay={true}
+              navigation={true}
+              pagination={{
+                dynamicBullets: false,
+                clickable: true,
+              }}
+              modules={[Pagination, Navigation, Autoplay, Lazy]}
+              className="home-slider"
+            >
+              {slides.map((slide) => {
+                return (
+                  <SwiperSlide key={slide.id}>
+                    <img
+                      className="img-fluid swiper-lazy"
+                      data-src={slide.img}
+                      alt={slide.id}
+                    />
+                    <div className="swiper-lazy-preloader"></div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 export default Slider;
