@@ -1,3 +1,4 @@
+import NewsLetter from "./NewsLetter";
 import Products from "./Products";
 import Slider from "./Slider";
 
@@ -6,6 +7,7 @@ function Home() {
     <>
       <Slider />
       <Products />
+      <NewsLetter />
     </>
   );
 }
