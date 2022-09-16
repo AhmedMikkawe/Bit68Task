@@ -10,18 +10,18 @@ function ProductPreview(props) {
       />
       <h5 className="mb-3">{props.product.name}</h5>
       <div className="d-flex justify-content-between">
-        <span className="product__price-after-discount">
+        <span className="product__price-after-discount fs-4">
           ${props.product.priceAfterdiscount}
         </span>
-        <span className="product__price">${props.product.price}</span>
+        <span className="product__price fs-4">${props.product.price}</span>
       </div>
-      <h6
+      <p
         className={
           props.product.inStock > 0 ? "product--instock" : "product--outstock"
         }
       >
         {props.product.inStock > 0 ? "In stock" : "Out of stock"}
-      </h6>
+      </p>
     </div>
   );
 }
