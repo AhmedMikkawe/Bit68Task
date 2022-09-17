@@ -101,3 +101,59 @@
 .footer {
   background-color: #1c1c1c;
 }
+.product__thumb {
+  width: 80px;
+  height: 80px;
+}
+.product__image {
+  object-fit: contain;
+  max-width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .product__thumb {
+    width: 31px;
+    height: 31px;
+  }
+  .product__image {
+    max-width: 80%;
+  }
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+.price--instock {
+  color: #0d4eb7;
+}
+.add-to-cart--instock {
+  background-color: #0d4eb7;
+  color: #fff;
+}
+.product__option {
+  border: 1px solid #c3c3c3;
+  border-radius: 10px;
+  color: #c3c3c3;
+  padding: 10px 20px;
+}
+@media screen and (max-width: 768px) {
+  .product__option {
+    padding: 5px 10px;
+  }
+}
+
+.product__option:hover {
+  cursor: pointer;
+}
+.product__option.checked {
+  border: 1px solid #000;
+  color: #000;
+}
+.product__option input[type="radio"] {
+  display: none;
+}
